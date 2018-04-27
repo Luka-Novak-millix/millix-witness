@@ -1,13 +1,13 @@
 /*jslint node: true */
 "use strict";
-var conf = require('byteballcore/conf.js');
-var db = require('byteballcore/db.js');
-var storage = require('byteballcore/storage.js');
-var eventBus = require('byteballcore/event_bus.js');
-var mail = require('byteballcore/mail.js');
-var headlessWallet = require('headless-byteball');
-var desktopApp = require('byteballcore/desktop_app.js');
-var objectHash = require('byteballcore/object_hash.js');
+var conf = require('millixcore/conf.js');
+var db = require('millixcore/db.js');
+var storage = require('millixcore/storage.js');
+var eventBus = require('millixcore/event_bus.js');
+var mail = require('millixcore/mail.js');
+var headlessWallet = require('headless-millix');
+var desktopApp = require('millixcore/desktop_app.js');
+var objectHash = require('millixcore/object_hash.js');
 
 var WITNESSING_COST = 600; // size of typical witnessing unit
 var my_address;
@@ -45,8 +45,8 @@ function witness(onDone){
 		notifyAdminAboutFailedWitnessing(err);
 		setTimeout(onDone, 60000); // pause after error
 	}
-	var network = require('byteballcore/network.js');
-	var composer = require('byteballcore/composer.js');
+	var network = require('millixcore/network.js');
+	var composer = require('millixcore/composer.js');
 	if (!network.isConnected()){
 		console.log('not connected, skipping');
 		return onDone();
